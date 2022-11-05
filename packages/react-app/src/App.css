@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  padding-left: calc(100vw - 100%);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 0.15fr));
+  justify-content: center;
+  align-content: center;
+  gap: 5rem;
+}
+
+.profile-card {
+  background-color: aqua;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.profile-img {
+}
