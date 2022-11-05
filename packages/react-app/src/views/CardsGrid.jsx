@@ -6,77 +6,27 @@ import { ProfileCard } from "../components";
  * @param {*} readContracts contracts from current chain already pre-loaded using ethers contract module. More here https://docs.ethers.io/v5/api/contract/contract/
  * @returns react component
  **/
-function CardsGrid() {
-  return (
-    <div className="cards-grid">
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-      <ProfileCard
-        imageUrl="https://lens.infura-ipfs.io/ipfs/Qma8mXoeorvPqodDazf7xqARoFD394s1njkze7q1X4CK8U"
-        handle="sasicodes.test"
-        address="0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464"
-        name="Sasi"
-      />
-    </div>
-  );
+function CardsGrid({ profiles }) {
+  const renderProfiles = () => {
+    return profiles.map(({ id, name, handle, ownedBy, picture }) => {
+      return (
+        <ProfileCard
+          key={id}
+          name={name}
+          handle={handle}
+          address={ownedBy}
+          imageUrl={
+            picture
+              ? picture.original.url.includes("ipfs://")
+                ? picture.original.url.replace("ipfs://", "https://ipfs.io/ipfs/")
+                : picture.original.url
+              : "https://statics-mumbai-lens-staging.s3.eu-west-1.amazonaws.com/profile/QmVeEwimhwaebeHFDTVY3XNjFuaNUWuhv1ksNefnzeTKXH"
+          }
+        />
+      );
+    });
+  };
+  return <div className="cards-grid">{renderProfiles()}</div>;
 }
 
 export default CardsGrid;

@@ -30,7 +30,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { getRPCPollTime, Transactor, Web3ModalSetup } from "./helpers";
-import { Home, ExampleUI, Hints, Subgraph, CardsGrid } from "./views";
+import { Home, ExampleUI, Hints, Subgraph, CardsContainer } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -79,6 +79,7 @@ function App(props) {
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
   const [selectedNetwork, setSelectedNetwork] = useState(networkOptions[0]);
+  const [profiles, setProfiles] = useState([]);
   const location = useLocation();
 
   const targetNetwork = NETWORKS[selectedNetwork];
@@ -297,7 +298,7 @@ function App(props) {
         USE_NETWORK_SELECTOR={USE_NETWORK_SELECTOR}
       />
       <Menu style={{ textAlign: "center", marginTop: 20 }} selectedKeys={[location.pathname]} mode="horizontal">
-      <Menu.Item key="/cards-grid">
+        <Menu.Item key="/cards-grid">
           <Link to="/cards-grid">Cards Grid</Link>
         </Menu.Item>
         <Menu.Item key="/">
@@ -322,7 +323,7 @@ function App(props) {
 
       <Switch>
         <Route exact path="/cards-grid">
-          <CardsGrid />
+          <CardsContainer />
         </Route>
         <Route exact path="/">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
