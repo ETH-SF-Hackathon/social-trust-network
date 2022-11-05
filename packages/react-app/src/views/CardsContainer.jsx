@@ -21,7 +21,7 @@ function CardsContainer() {
   }, [getProfiles]);
   return (
     <div className="cards-container cards-page-background">
-      <div className="profile-grid">
+      <div>
         <CardsGrid profiles={profiles} />
       </div>
     </div>

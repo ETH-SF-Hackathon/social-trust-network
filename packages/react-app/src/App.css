@@ -8,23 +8,26 @@
   grid-template-columns: repeat(auto-fit, minmax(12rem, 0.15fr));
   justify-content: center;
   align-content: center;
-  gap: 5rem;
+  column-gap: 10px;
+  row-gap: 40px;
+  padding-left: 20px;
+  margin: auto;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .profile-card {
   background-color: rgb(224, 230, 232);
-  border-radius: .5rem;
+  border-radius: 25px;
   display: grid;
-  width: 100%;
+  width: 150px;
   justify-content: center;
   align-content: center;
-  padding-bottom: .2rem;
-  
+  height: 150px;
+  margin: -10px;
+  padding: 0px;
   transition: all .3s;
-  border-radius: 3px; 
   cursor: pointer; 
-
-
 }
 
 .profile-card:hover {
@@ -41,11 +44,19 @@
 .profile-img {
   margin: auto;
   border-radius: 50%;
+  height: 75px;
+  width: 75px;
 }
 
 .card-title {
   font-weight: bold;
-  margin-bottom: .3rem;
+  text-align: center;
+  margin-bottom: 5px;
+  margin: auto;
+}
+
+span {
+  vertical-align: middle;
 }
 
 .mint-banner {
@@ -72,6 +83,12 @@
   background-color: rgb(80, 80, 80);
   padding: 20px;
   margin: 20px;
+  margin-left: 75px;
   border-radius: 25px;
   border: #42daf5 3px solid;
+}
+
+.card-text {
+  font-weight: 700;
+  text-decoration: underline;
 }

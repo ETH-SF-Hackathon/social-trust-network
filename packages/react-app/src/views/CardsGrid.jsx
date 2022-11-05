@@ -27,7 +27,7 @@ function CardsGrid({ profiles }) {
     });
   };
   return (
-    <div>
+    <div className="profile-grid">
       <div className="cards-grid">{renderProfiles()}</div>
     </div>
   );
