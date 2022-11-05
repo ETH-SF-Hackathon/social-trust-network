@@ -7,7 +7,7 @@ import CardsGrid from "./CardsGrid";
  * @param {*} readContracts contracts from current chain already pre-loaded using ethers contract module. More here https://docs.ethers.io/v5/api/contract/contract/
  * @returns react component
  **/
-function CardsContainer() {
+function CardsContainer({ web3Modal }) {
   const [profiles, setProfiles] = useState([]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getProfiles = useCallback(async () => {
@@ -15,13 +15,14 @@ function CardsContainer() {
     console.log("profiles", profiles);
     setProfiles(profiles);
   });
+
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
   return (
-    <div className="cards-container">
-      <div>
-        <CardsGrid profiles={profiles} />
+    <div>
+      <div className="cards-container">
+        <CardsGrid profiles={profiles} web3Modal={web3Modal} />
       </div>
     </div>
   );
