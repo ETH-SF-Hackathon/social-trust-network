@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { getLensProfiles } from "../api";
 import CardsGrid from "./CardsGrid";
-
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
  * @param {*} yourLocalBalance balance on current network
@@ -20,7 +19,7 @@ function CardsContainer() {
     getProfiles();
   }, [getProfiles]);
   return (
-    <div className="cards-container cards-page-background">
+    <div className="cards-container">
       <div>
         <CardsGrid profiles={profiles} />
       </div>
