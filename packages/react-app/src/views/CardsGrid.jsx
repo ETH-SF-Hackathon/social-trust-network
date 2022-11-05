@@ -26,7 +26,11 @@ function CardsGrid({ profiles }) {
       );
     });
   };
-  return <div className="cards-grid">{renderProfiles()}</div>;
+  return (
+    <div>
+      <div className="cards-grid">{renderProfiles()}</div>
+    </div>
+  );
 }
 
 export default CardsGrid;

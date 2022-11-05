@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getLensProfiles } from "../api";
 import CardsGrid from "./CardsGrid";
 
@@ -20,8 +20,10 @@ function CardsContainer() {
     getProfiles();
   }, [getProfiles]);
   return (
-    <div className="cards-container">
-      <CardsGrid profiles={profiles} />
+    <div className="cards-container cards-page-background">
+      <div className="profile-grid">
+        <CardsGrid profiles={profiles} />
+      </div>
     </div>
   );
 }
