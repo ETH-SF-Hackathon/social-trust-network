@@ -1,9 +1,12 @@
 import React from "react";
+import { useEthers } from "@usedapp/core";
 import { getContract } from "../ethers";
 
 function ProfileCard({ id, imageUrl, handle, address, name, web3Modal, userSigner, myAddress }) {
+  const { activateBrowserWallet, account, library } = useEthers();
+
   const mintToken = async () => {
-    getContract(userSigner, myAddress, address, 1)
+    getContract(library, myAddress, address, 1)
   }
   return (
     <div className="profile-card" onClick={mintToken}>
