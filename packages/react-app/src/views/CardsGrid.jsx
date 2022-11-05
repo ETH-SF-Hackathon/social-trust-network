@@ -27,11 +27,7 @@ function CardsGrid({ profiles, web3Modal }) {
       );
     });
   };
-  return (
-    <div className="profile-grid">
-      <div className="cards-grid">{renderProfiles()}</div>
-    </div>
-  );
+  return <div className="cards-grid">{renderProfiles()}</div>;
 }
 
 export default CardsGrid;
