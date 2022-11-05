@@ -41,8 +41,8 @@ const { ethers } = require("ethers");
 */
 
 /// 📡 What chain are your contracts deployed to?
-const initialNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, goerli, xdai, mainnet)
-
+// const initialNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, goerli, xdai, mainnet)
+const initialNetwork = NETWORKS.goerli;
 // 😬 Sorry for all the console logging
 const DEBUG = true;
 const NETWORKCHECK = true;
@@ -311,7 +311,7 @@ function App(props) {
 
         <Switch>
           <Route exact path="/cards-grid">
-            {!web3Modal?.cachedProvider && <CardsContainer web3Modal={web3Modal} />}
+            {web3Modal?.cachedProvider && <CardsContainer web3Modal={web3Modal} userSigner = {userSigner} myAddress ={address}/>}
           </Route>
           <Route exact path="/">
             {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}

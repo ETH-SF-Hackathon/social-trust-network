@@ -1,8 +1,12 @@
 import React from "react";
+import { getContract } from "../ethers";
 
-function ProfileCard({ id, imageUrl, handle, address, name, web3Modal }) {
+function ProfileCard({ id, imageUrl, handle, address, name, web3Modal, userSigner, myAddress }) {
+  const mintToken = async () => {
+    getContract(userSigner, myAddress, address, 1)
+  }
   return (
-    <div className="profile-card" onClick={web3Modal?.cachedProvider}>
+    <div className="profile-card" onClick={mintToken}>
       {/* <div className="mint-banner">MINT</div>
       <div className="card-title">{name}</div> */}
       <img className="profile-img" src={imageUrl} alt="" width="50%" height=""></img>
