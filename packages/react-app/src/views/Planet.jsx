@@ -49,7 +49,7 @@ function Planet({ loadWeb3Modal }) {
         <img src={firstPlanet} style={{ height: "600px", width: "600px" }} />
       ) : balance < 2 ? (
         <img src={secondPlanet} style={{ height: "600px", width: "600px" }} />
-      ) : balance > 2 ? (
+      ) : balance >= 2 ? (
         <img src={thirdPlanet} style={{ height: "600px", width: "600px" }} />
       ) : null}
 
