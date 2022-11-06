@@ -13,20 +13,27 @@ function Home({ yourLocalBalance, readContracts, loadWeb3Modal }) {
 
   const mint = async () => {
     const exampleWallet = "0xffb52611d0e27D25b93a31814740210A974071fe";
-    console.log("account in mint func:", account);
 
     const provider = await new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
 
-    console.log("signer :", signer);
-
     const contract = await new ethers.Contract(contractAddress, abi, signer);
     const tx = await contract.mint(exampleWallet);
-    console.log("tx :", tx);
   };
 
   return (
-    <div style={{ padding: "120px 78px" }}>
+    <div
+      style={{
+        padding: "120px 78px",
+        // minHeight: "100%",
+        // minWidth: "100%",
+        // background: "url('assets/wrappy-background.png') no- repeat center center fixed",
+        // backgroundSize: "100",
+        // backgroundRepeat: "no-repeat",
+        // backgroundPosition: "center center",
+        // backgroundAttachment: "fixed",
+      }}
+    >
       <p
         style={{
           maxWidth: "800px",

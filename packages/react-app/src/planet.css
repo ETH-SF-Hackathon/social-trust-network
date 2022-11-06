@@ -1,0 +1,10 @@
+.bg {
+  min-height: 100% !important;
+  min-width: 100% !important;
+  background: url("./assets/planet-background.png") no-repeat center center fixed !important;
+  background-color: "black";
+  background-size: contain;
+  background-repeat: no-repeat!;
+  background-position: center center!;
+  background-attachment: fixed!;
+}

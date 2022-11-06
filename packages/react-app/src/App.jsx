@@ -18,29 +18,10 @@ import externalContracts from "./contracts/external_contracts";
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { getRPCPollTime, Transactor, Web3ModalSetup } from "./helpers";
 import { useStaticJsonRPC } from "./hooks";
-import { CardsContainer, ExampleUI, Hints, Home, Subgraph } from "./views";
+import { CardsContainer, ExampleUI, Hints, Home, Subgraph, Planet } from "./views";
 
 const { ethers } = require("ethers");
-/*
-    Welcome to 🏗 scaffold-eth !
 
-    Code:
-    https://github.com/scaffold-eth/scaffold-eth
-
-    Support:
-    https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA
-    or DM @austingriffith on twitter or telegram
-
-    You should get your own Alchemy.com & Infura.io ID and put it in `constants.js`
-    (this is your connection to the main Ethereum network for ENS etc.)
-
-
-    🌏 EXTERNAL CONTRACTS:
-    You can also bring in contract artifacts in `constants.js`
-    (and then use the `useExternalContractLoader()` hook!)
-*/
-
-/// 📡 What chain are your contracts deployed to?
 // const initialNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, goerli, xdai, mainnet)
 const initialNetwork = NETWORKS.goerli;
 // 😬 Sorry for all the console logging
@@ -84,11 +65,6 @@ function App(props) {
   // Sensible pollTimes depending on the provider you are using
   const localProviderPollingTime = getRPCPollTime(localProvider);
   const mainnetProviderPollingTime = getRPCPollTime(mainnetProvider);
-
-  if (DEBUG) console.log(`Using ${selectedNetwork} network`);
-
-  // 🛰 providers
-  if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
 
   const logoutOfWeb3Modal = async () => {
     await web3Modal.clearCachedProvider();
@@ -215,6 +191,10 @@ function App(props) {
               <div className="homepage-subtitle">Flourish your planet by interacting with your friends on-chain</div>
             )}
           </Route>
+          <Route exact path="/planet">
+            <Planet loadWeb3Modal={loadWeb3Modal} />
+          </Route>
+
           <Route path="/subgraph">
             <Subgraph
               subgraphUri={props.subgraphUri}
