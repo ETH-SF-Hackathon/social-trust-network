@@ -1,8 +1,15 @@
 import React from "react";
+import { useEthers } from "@usedapp/core";
+import { getContract } from "../ethers";
 
-function ProfileCard({ id, imageUrl, handle, address, name, web3Modal }) {
+function ProfileCard({ id, imageUrl, handle, address, name, web3Modal, userSigner, myAddress }) {
+  const { activateBrowserWallet, account, library } = useEthers();
+
+  const mintToken = async () => {
+    getContract(library, myAddress, address, 1)
+  }
   return (
-    <div className="profile-card" onClick={web3Modal?.cachedProvider && console.log("Mint succeeded.")}>
+    <div className="profile-card" onClick={mintToken}>
       {/* <div className="mint-banner">MINT</div>
       <div className="card-title">{name}</div> */}
       <img className="profile-img" src={imageUrl} alt="" width="50%" height=""></img>

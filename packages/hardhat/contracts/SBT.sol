@@ -9,12 +9,12 @@ contract SBT is ERC1155 {
         owner = msg.sender;
     }
 
-    function _mint(
+    function mint(
         address to,
         uint256,
         uint256,
         bytes memory data
-     ) internal virtual override{
+     ) public {
         require(to != msg.sender, "You can't mint wrappy SBT by yourself");
         _mint(to, nftId, 1, "");
         nftId++;

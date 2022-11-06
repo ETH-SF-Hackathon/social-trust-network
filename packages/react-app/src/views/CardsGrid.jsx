@@ -6,11 +6,12 @@ import { ProfileCard } from "../components";
  * @param {*} readContracts contracts from current chain already pre-loaded using ethers contract module. More here https://docs.ethers.io/v5/api/contract/contract/
  * @returns react component
  **/
-function CardsGrid({ profiles, web3Modal }) {
+function CardsGrid({ profiles, web3Modal, myAddress }) {
   const renderProfiles = () => {
-    return profiles.map(({ id, name, handle, ownedBy, picture }) => {
+    return profiles.map(({ id, name, handle, ownedBy, picture, userSigner }) => {
       return (
         <ProfileCard
+          userSigner={userSigner}
           key={id}
           name={name}
           handle={handle}
@@ -23,6 +24,7 @@ function CardsGrid({ profiles, web3Modal }) {
               : "https://statics-mumbai-lens-staging.s3.eu-west-1.amazonaws.com/profile/QmVeEwimhwaebeHFDTVY3XNjFuaNUWuhv1ksNefnzeTKXH"
           }
           web3Modal={web3Modal}
+          myAddress={myAddress}
         />
       );
     });
