@@ -1,28 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
-contract SBT is ERC1155 {
+contract WrappySBT is ERC1155 {
     address owner;
-    uint nftId;
-    string ipfsUrl = "ipfs://QmdNwGX2vWipg9sH8hyXYDvU6NMM5M7zS1ChzFPGgcoCmH/1.json";
+    uint nftId = 0;
+    string ipfsUrl = "ipfs://QmPbwAWU678GHTxq5coLN2idhRTrWS5qbSNcY8JKx7M6gc";
     
     constructor() ERC1155(ipfsUrl) {
         owner = msg.sender;
-    }
-
-    function _mint(
-        address to,
-        uint256,
-        uint256,
-        bytes memory data
-     ) internal virtual override{
-        require(to != msg.sender, "You can't mint wrappy SBT by yourself");
-        _mint(to, nftId, 1, "");
+        _mint(owner, 0, 1, "");
         nftId++;
     }
 
-    function burn(uint256 tokenId, address userAddress, uint amount) public {
-        require(msg.sender == owner, "Now Allowed");
-        _burn(userAddress, tokenId, amount);
+    function mint(address to) public {
+        require(to != msg.sender || msg.sender == owner, "You can't mint wrappy SBT by yourself");
+        _mint(to, nftId, 1, "");
+        nftId++;
     }
 
     function setBaseURI(string memory _ipfsUrl) public {
