@@ -22,6 +22,7 @@ function Planet({ loadWeb3Modal }) {
 
   // Goerli Contract
   const contractAddress = "0x104EEABb4261f164149781A6CEb3cE56Bda44f8f";
+  const wrappyWallet = "0xffb52611d0e27D25b93a31814740210A974071fe";
 
   const connect = async () => {
     activateBrowserWallet();
@@ -31,7 +32,7 @@ function Planet({ loadWeb3Modal }) {
     const provider = await new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
     const contract = await new ethers.Contract(contractAddress, abi, signer);
-    const balance = await contract.balanceOf("0xD4B45FD5B4Ee16364A4f2DcA3837c5F1FCcacfaa", 0);
+    const balance = await contract.balanceOf(wrappyWallet, 0); //TODO: get signerAddress
     const num = BigNumber.from(balance).toNumber();
     getBalance(num);
   };
@@ -39,7 +40,7 @@ function Planet({ loadWeb3Modal }) {
   return (
     <div
       style={{
-        padding: "40px 80px",
+        padding: "0px 80px",
         minHeight: "100%",
       }}
       className="bg"

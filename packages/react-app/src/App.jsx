@@ -152,31 +152,26 @@ function App(props) {
         {/* ✏️ Edit the header and change the title to your project name */}
         {/* <Header> */}
         {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-        <div style={{ position: "relative", display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", flex: 1 }}>
-            {/* {USE_NETWORK_SELECTOR && (
-              <div style={{ marginRight: 20 }}>
-                <NetworkSwitch
-                  networkOptions={networkOptions}
-                  selectedNetwork={selectedNetwork}
-                  setSelectedNetwork={setSelectedNetwork}
-                />
-              </div>
-            )} */}
-            <Account
-              useBurner={USE_BURNER_WALLET}
-              address={address}
-              localProvider={localProvider}
-              userSigner={userSigner}
-              mainnetProvider={mainnetProvider}
-              price={price}
-              web3Modal={web3Modal}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-              blockExplorer={blockExplorer}
-            />
+        {location.pathname !== "/planet" ? (
+          <div style={{ position: "relative", display: "flex", flexDirection: "column" }}>
+            <div style={{ display: "flex", flex: 1 }}>
+              <Account
+                useBurner={USE_BURNER_WALLET}
+                address={address}
+                localProvider={localProvider}
+                userSigner={userSigner}
+                mainnetProvider={mainnetProvider}
+                price={price}
+                web3Modal={web3Modal}
+                loadWeb3Modal={loadWeb3Modal}
+                logoutOfWeb3Modal={logoutOfWeb3Modal}
+                blockExplorer={blockExplorer}
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <>null</>
+        )}
 
         <Switch>
           <Route exact path="/">
@@ -204,9 +199,7 @@ function App(props) {
             />
           </Route>
         </Switch>
-
         {/* <ThemeSwitch /> */}
-
         {/* 🗺 Extra UI like gas price, eth price, faucet, and support: */}
       </body>
     </div>

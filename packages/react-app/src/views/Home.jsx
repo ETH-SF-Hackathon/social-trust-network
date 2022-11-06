@@ -1,9 +1,9 @@
 import { useContractReader } from "eth-hooks";
 import { ethers } from "ethers";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useEthers, Config, Mainnet, Goerli } from "@usedapp/core";
 import abi from "../abi.json";
+import { Link } from "react-router-dom";
 
 function Home({ yourLocalBalance, readContracts, loadWeb3Modal }) {
   const { activateBrowserWallet, account, library } = useEthers();
@@ -41,7 +41,9 @@ function Home({ yourLocalBalance, readContracts, loadWeb3Modal }) {
           marginBottom: 0,
           fontSize: "72px",
           fontWeight: "bold",
-          color: "linear-gradient(82.38deg, #E75413 3.3%, #C624FF 50.69%, #0CB4FF 98.08%)",
+          color: "white",
+          padding: "8px",
+          // color: "linear-gradient(82.38deg, #E75413 3.3%, #C624FF 50.69%, #0CB4FF 98.08%)",
           background: "linear-gradient(90deg, #4158D0, #C850C0 30%, #FFCC70)",
           background: "-webkit-linear-gradient(0deg, #4158D0, #C850C0 30%, #FFCC70)",
         }}
@@ -84,6 +86,23 @@ function Home({ yourLocalBalance, readContracts, loadWeb3Modal }) {
             Connect Wallet
           </button>
         </div>
+        <Link to="/planet">
+          <div
+            style={{
+              marginLeft: "20px",
+              width: "240px",
+              background: "linear-gradient(82.38deg, #E75413 3.3%, #C624FF 50.69%, #0CB4FF 98.08%)",
+              padding: "4px",
+              borderRadius: "34px",
+              color: "white",
+              padding: "12px",
+              fontSize: "20px",
+              fontWeight: "bold",
+            }}
+          >
+            View My Planet
+          </div>
+        </Link>
       </div>
     </div>
   );
