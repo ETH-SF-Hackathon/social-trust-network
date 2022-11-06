@@ -311,8 +311,12 @@ function App(props) {
 
         <Switch>
           <Route exact path="/cards-grid">
-            {!web3Modal?.cachedProvider && <div className="profile-grid-header">Mint SBT for Friends</div>}
-            {!web3Modal?.cachedProvider && <CardsContainer web3Modal={web3Modal} />}
+            {web3Modal?.cachedProvider && <div className="profile-grid-header">Mint SBT for Friends</div>}
+            {web3Modal?.cachedProvider && <CardsContainer web3Modal={web3Modal} />}
+            {!web3Modal?.cachedProvider && <div className="homepage-title">Treasure your friendship on-chain</div>}
+            {!web3Modal?.cachedProvider && (
+              <div className="homepage-subtitle">Flourish your planet by interacting with your friends on-chain</div>
+            )}
           </Route>
           <Route exact path="/">
             {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
