@@ -311,7 +311,8 @@ function App(props) {
 
         <Switch>
           <Route exact path="/cards-grid">
-            {web3Modal?.cachedProvider && <CardsContainer web3Modal={web3Modal} userSigner = {userSigner} myAddress ={address}/>}
+            {web3Modal?.cachedProvider && <div className="profile-grid-header">Mint SBT for Friends</div>}
+            {web3Modal?.cachedProvider && <CardsContainer web3Modal={web3Modal} />}
           </Route>
           <Route exact path="/">
             {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}

@@ -20,10 +20,11 @@ function CardsContainer({ web3Modal, userSigner, myAddress }) {
     getProfiles();
   }, [getProfiles]);
   return (
-    <div>
-      <div className="cards-container">
-        <CardsGrid profiles={profiles} web3Modal={web3Modal} userSigner={userSigner} myAddress={myAddress} />
+    <div className="cards-container">
+      <div className="search-bar-div">
+        <input className="search-bar-cards-grid"></input>
       </div>
+      <CardsGrid profiles={profiles} web3Modal={web3Modal} />
     </div>
   );
 }
