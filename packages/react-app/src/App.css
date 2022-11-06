@@ -26,19 +26,19 @@
   height: 150px;
   margin: -10px;
   padding: 0px;
-  transition: all .3s;
-  cursor: pointer; 
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 .profile-card:hover {
-  transform: translateY(-.5rem) scale(1.03); 
+  transform: translateY(-0.5rem) scale(1.03);
   filter: brightness(70%);
-  box-shadow: 7px 7px 20px rgba(0,0,0 , .2);
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.2);
 }
 
 .profile-card:active {
-  transform: translateY(-.2rem) scale(1.01);
-  box-shadow: 3px 3px 10px rgba(0,0,0 , .2);
+  transform: translateY(-0.2rem) scale(1.01);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .profile-img {
@@ -61,9 +61,9 @@ span {
 
 .mint-banner {
   background-color: rgba(0, 64, 255, 0.611);
-  padding: .5rem;
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
+  padding: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   font-weight: bolder;
   font-size: 1rem;
 }
@@ -71,7 +71,8 @@ span {
 body {
   min-height: 100%!;
   min-width: 100%!;
-  background: url("assets/cards-page-background.jpg") no-repeat center center fixed;
+  background: url("assets/wrappy-background.png") no-repeat center center fixed;
+  background-color: "black";
   background-size: 100%;
   background-repeat: no-repeat!;
   background-position: center center!;
@@ -114,7 +115,8 @@ body {
   border: 0px;
   width: 60%;
   height: 32px;
-  background: transparent url("https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-2.png") no-repeat 10px;
+  background: transparent url("https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-2.png") no-repeat
+    10px;
   background-size: 15px;
   cursor: pointer;
   padding-left: 35px;
@@ -135,7 +137,7 @@ body {
   left: 72px;
   top: 252px;
 
-  font-family: 'SF Pro';
+  font-family: "SF Pro";
   font-style: normal;
   font-weight: 860;
   font-size: 60px;
@@ -144,7 +146,7 @@ body {
   /* or 94% */
 
   /* NEW */
-  background: linear-gradient(82.38deg, #E75413 3.3%, #C624FF 50.69%, #0CB4FF 98.08%);
+  background: linear-gradient(82.38deg, #e75413 3.3%, #c624ff 50.69%, #0cb4ff 98.08%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -154,13 +156,13 @@ body {
 .homepage-subtitle {
   /* Flourish your planet by interacting with your friends on-chain */
 
-position: absolute;
+  position: absolute;
   width: 653px;
   height: 80px;
   left: 72px;
   top: 408px;
 
-  font-family: 'SF Pro';
+  font-family: "SF Pro";
   font-style: normal;
   font-weight: 510;
   font-size: 30px;
@@ -169,8 +171,5 @@ position: absolute;
   /* or 133% */
   letter-spacing: 0.05em;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
-
-
-

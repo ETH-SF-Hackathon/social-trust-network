@@ -1,45 +1,11 @@
-import { Button } from "antd";
+import { Button, Typography, Image } from "antd";
 import React from "react";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 
 import Address from "./Address";
 import Balance from "./Balance";
 import Wallet from "./Wallet";
-
-/** 
-  ~ What it does? ~
-
-  Displays an Address, Balance, and Wallet as one Account component,
-  also allows users to log in to existing accounts and log out
-
-  ~ How can I use? ~
-
-  <Account
-    address={address}
-    localProvider={localProvider}
-    userProvider={userProvider}
-    mainnetProvider={mainnetProvider}
-    price={price}
-    web3Modal={web3Modal}
-    loadWeb3Modal={loadWeb3Modal}
-    logoutOfWeb3Modal={logoutOfWeb3Modal}
-    blockExplorer={blockExplorer}
-    isContract={boolean}
-  />
-
-  ~ Features ~
-
-  - Provide address={address} and get balance corresponding to the given address
-  - Provide localProvider={localProvider} to access balance on local network
-  - Provide userProvider={userProvider} to display a wallet
-  - Provide mainnetProvider={mainnetProvider} and your address will be replaced by ENS name
-              (ex. "0xa870" => "user.eth")
-  - Provide price={price} of ether and get your balance converted to dollars
-  - Provide web3Modal={web3Modal}, loadWeb3Modal={loadWeb3Modal}, logoutOfWeb3Modal={logoutOfWeb3Modal}
-              to be able to log in/log out to/from existing accounts
-  - Provide blockExplorer={blockExplorer}, click on address and get the link
-              (ex. by default "https://etherscan.io/" or for xdai "https://blockscout.com/poa/xdai/")
-**/
+import logo from "../assets/wrappy.png";
 
 export default function Account({
   address,
@@ -85,13 +51,31 @@ export default function Account({
   );
 
   return (
-    <div style={{ display: "flex", marginLeft: "90%", marginTop: "10px" }}>
-      {/* {display} */}
-      {web3Modal && (
-        <Button style={{ marginLeft: 8 }} shape="round" onClick={accountButtonInfo.action}>
-          {accountButtonInfo.name}
-        </Button>
-      )}
+    <div
+      style={{ width: "100%", display: "flex", justifyContent: "space-between", marginTop: "20px", padding: "0 40px" }}
+    >
+      <div>
+        <img src={logo} style={{ width: "132px", height: "24px" }}></img>
+      </div>
+      <div style={{ display: "flex" }}>
+        {web3Modal && (
+          <>
+            <Typography style={{ color: "white", fontSize: "20px", fontWeight: "bold", marginLeft: "30px" }}>
+              About
+            </Typography>
+            <Typography style={{ color: "white", fontSize: "20px", fontWeight: "bold", marginLeft: "30px" }}>
+              Team
+            </Typography>
+            <Button
+              style={{ marginLeft: 8, fontWeight: "bold", marginLeft: "30px" }}
+              shape="round"
+              onClick={accountButtonInfo.action}
+            >
+              {accountButtonInfo.name}
+            </Button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

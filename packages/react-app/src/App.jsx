@@ -205,7 +205,7 @@ function App(props) {
         <Switch>
           <Route exact path="/">
             {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-            <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
+            <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} loadWeb3Modal={loadWeb3Modal} />
           </Route>
           <Route exact path="/cards-grid">
             {web3Modal?.cachedProvider && <div className="profile-grid-header">Mint SBT for Friends</div>}
