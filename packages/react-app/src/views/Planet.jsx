@@ -45,11 +45,11 @@ function Planet({ loadWeb3Modal }) {
       }}
       className="bg"
     >
-      {balance < 3 ? (
+      {balance < 1 ? (
         <img src={firstPlanet} style={{ height: "600px", width: "600px" }} />
-      ) : balance < 10 ? (
+      ) : balance < 2 ? (
         <img src={secondPlanet} style={{ height: "600px", width: "600px" }} />
-      ) : balance > 10 ? (
+      ) : balance > 2 ? (
         <img src={thirdPlanet} style={{ height: "600px", width: "600px" }} />
       ) : null}
 
