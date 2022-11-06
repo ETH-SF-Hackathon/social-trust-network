@@ -7,6 +7,7 @@ import App from "./App";
 import "./index.css";
 import { DAppProvider, useEthers, Config, Goerli, Mainnet } from "@usedapp/core";
 import { getDefaultProvider } from "ethers";
+import { ContractsAppContext, EthersAppContext } from "eth-hooks";
 
 const themes = {
   dark: `${process.env.PUBLIC_URL}/dark-theme.css`,
