@@ -125,3 +125,52 @@ body {
   text-align: left;
   padding-left: 3%;
 }
+
+.homepage-title {
+  /* Treasure your friendship on-chain */
+
+  position: absolute;
+  width: 671px;
+  height: 136px;
+  left: 72px;
+  top: 252px;
+
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 860;
+  font-size: 60px;
+  text-align: left;
+  line-height: 68px;
+  /* or 94% */
+
+  /* NEW */
+  background: linear-gradient(82.38deg, #E75413 3.3%, #C624FF 50.69%, #0CB4FF 98.08%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.homepage-subtitle {
+  /* Flourish your planet by interacting with your friends on-chain */
+
+position: absolute;
+  width: 653px;
+  height: 80px;
+  left: 72px;
+  top: 408px;
+
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 510;
+  font-size: 30px;
+  text-align: left;
+  line-height: 40px;
+  /* or 133% */
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+}
+
+
+
